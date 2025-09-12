@@ -1,6 +1,4 @@
-# cargar_datos.py
-
-# cargar_datos.py
+# Script para cargar y transformar datos de Ecobici en PostgreSQL
 
 import os
 import glob
