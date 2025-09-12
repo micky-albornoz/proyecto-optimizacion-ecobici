@@ -1,4 +1,4 @@
--- sql/schema.sql
+-- Esquema SQL para la base de datos de Ecobici
 
 -- Borra las tablas si ya existen para permitir una recarga limpia
 DROP TABLE IF EXISTS fact_trips;
