@@ -1,5 +1,11 @@
 # Script para cargar y transformar datos de Ecobici en PostgreSQL
 
+# Dependencias del proyecto:
+#   pip install -r requirements.txt
+#
+# Versión de Python: 3.8+
+
+# Importar librerías necesarias
 import os
 import glob
 import pandas as pd
@@ -112,12 +118,12 @@ def process_and_load_data(conn):
         cur.execute(
             "INSERT INTO fact_trips (start_time, end_time, duration_minutes, start_station_id, end_station_id) VALUES (%s, %s, %s, %s, %s)",
             (row['start_time'], row['end_time'], row['duration_minutes'], row['start_station_id'], row['end_station_id'])
-        )
+        ) 
     print(f"Cargados {len(trips_to_load)} viajes en la tabla fact_trips.")
 
     # Confirmar los cambios en la base de datos
-    conn.commit()
-    cur.close()
+    conn.commit() # Guardar los cambios
+    cur.close() 
 
 # --- 4. EJECUCIÓN PRINCIPAL DEL SCRIPT ---
 if __name__ == '__main__':
