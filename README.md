@@ -25,13 +25,13 @@ El objetivo de este proyecto es identificar patrones de uso, diagnosticar estaci
 
 El proyecto se desarrolló siguiendo un flujo de trabajo analítico completo, desde el tratamiento de los datos hasta la comunicación de insights.
 
-1.  **ETL y Modelado de datos:** Se desarrolló un script en Python para realizar la extracción, transformación y carga (ETL) de los datos. Se leyeron múltiples archivos CSV, se limpiaron y se estructuraron en un **esquema de estrella** (dim_stations, fact_trips) cargado en una base de datos PostgreSQL.
+1.  **ETL y Modelado de datos:** Se desarrolló un script en Python para realizar la extracción, transformación y carga (**ETL**) de los datos. Se leyó un archivo CSV con **macrodatos** (con aproximadamente 3,5 millones de registros), se limpió y se estructuró en un **esquema de estrella** (dim_stations, fact_trips) cargado en una base de datos **PostgreSQL**.
 
 2.  **Preparación Avanzada de Datos en Tableau:** Para poder analizar salidas y llegadas de forma simultánea, se utilizó una técnica de **Unión de datos (Union)** dentro de Tableau. Esto permitió reestructurar el set de datos para tratar cada viaje como dos eventos distintos (una salida y una llegada), sentando las bases para un análisis de flujo preciso.
 
 3.  **Ingeniería de métricas:** Se crearon campos calculados avanzados para transformar los datos crudos en insights accionables:
     * **Flujo neto diario promedio:** En lugar de analizar totales anuales, se calculó el patrón de flujo neto promedio para cada hora de cada día de la semana. Esto permite identificar tendencias operativas realistas y comparables.
-    * **Acción sugerida:** Se diseñó un **modelo de segmentación estratégica** con umbrales personalizados. Este modelo clasifica cada estación en "Déficit Crítico", "Superávit Probable (Donante)" o "Equilibrado", permitiendo al equipo de operaciones priorizar sus recursos de manera eficiente.
+    * **Acción sugerida:** Se diseñó un **modelo de segmentación estratégica** con umbrales personalizados. Este modelo clasifica cada estación en "Déficit crítico", "Superávit probable (donante)" o "Equilibrado", permitiendo al equipo de operaciones priorizar sus recursos de manera eficiente.
 
 4.  **Análisis de patrones y visualización interactiva:** Se construyeron tres dashboards interconectados para explorar los datos:
     * **Dashboard 1 (Pulso del sistema):** Ofrece una vista macro de la actividad de la red e identifica las estaciones y horas de mayor demanda.
