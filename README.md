@@ -2,7 +2,7 @@
 
 ## 📝 Descipción general del proyecto
 
-Este proyecto analiza los datos históricos de viajes de bicicletas Ecobici (durante período anual 2024) para desarrollar un modelo de optimización de la flota.\
+Este proyecto analiza los datos históricos de viajes de bicicletas Ecobici (durante el período anual 2024) para desarrollar un modelo de optimización de la flota.\
 **Ecobici** es un excelente sistema público y gratuito de bicicletas compartidas de la Ciudad de Buenos Aires, gestionado por el Gobierno de la Ciudad, y actualmente operado por la empresa Tembici.\
 El objetivo de este proyecto es identificar patrones de uso, diagnosticar estaciones con desequilibrios crónicos y proponer un **plan de rebalanceo operativo y por hora** para mejorar la calidad del servicio.
 
