@@ -3,7 +3,7 @@
 ## 📝 Descipción general del proyecto
 
 Este proyecto analiza los datos históricos de viajes del sistema público de bicicletas Ecobici de la Ciudad de Buenos Aires para desarrollar un modelo de optimización de la flota.\
-Ecobici es un excelente sistema público y gratuito de bicicletas compartidas de la Ciudad de Buenos Aires, gestionado por el Gobierno de la Ciudad de Buenos Aires, y actualmente operado por la empresa Tembici.\
+**Ecobici** es un excelente sistema público y gratuito de bicicletas compartidas de la Ciudad de Buenos Aires, gestionado por el Gobierno de la Ciudad de Buenos Aires, y actualmente operado por la empresa Tembici.\
 El objetivo de este proyecto es identificar patrones de uso, diagnosticar estaciones con desequilibrios crónicos y proponer un **plan de rebalanceo operativo y por hora** para mejorar la calidad del servicio.
 
 
