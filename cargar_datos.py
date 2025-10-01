@@ -25,6 +25,7 @@ DB_PORT = os.getenv("DB_PORT")
 # --- 2. FUNCIÓN PARA CONECTAR A POSTGRESQL ---
 def get_db_connection():
     """Establece y devuelve una conexión a la base de datos."""
+    # Intentar conectar a la base de datos de PostgreSQL
     try:
         conn = psycopg2.connect(
             dbname=DB_NAME,
@@ -42,7 +43,7 @@ def get_db_connection():
 # --- 3. PROCESAMIENTO Y CARGA DE DATOS ---
 def process_and_load_data(conn):
     """Procesa los archivos CSV y los carga en la base de datos."""
-    cur = conn.cursor()
+    cur = conn.cursor() # Cursor para ejecutar comandos SQL
 
     # Ejecutar el script SQL para crear el esquema (esto limpia las tablas cada vez)
     with open('sql/schema.sql', 'r') as f:
@@ -83,7 +84,7 @@ def process_and_load_data(conn):
     # NUEVO: Convertir duración de segundos a minutos y a tipo entero
     df_trips['duration_minutes'] = (df_trips['duration_seconds'] / 60).astype(int)
 
-    # NUEVO: Extraer estaciones únicas incluyendo sus coordenadas
+    # Extraer estaciones únicas incluyendo sus coordenadas
     # Se extraen las de origen y destino por separado para capturar todas las estaciones
     stations_start = df_trips[['start_station_id', 'start_station_name', 'start_station_lat', 'start_station_lon']].rename(columns={
         'start_station_id': 'id',
@@ -115,6 +116,7 @@ def process_and_load_data(conn):
     # Seleccionamos las columnas finales y limpiamos filas con datos nulos
     trips_to_load = df_trips[['start_time', 'end_time', 'duration_minutes', 'start_station_id', 'end_station_id']].dropna()
     for index, row in trips_to_load.iterrows():
+        # Insertar cada viaje en la tabla fact_trips
         cur.execute(
             "INSERT INTO fact_trips (start_time, end_time, duration_minutes, start_station_id, end_station_id) VALUES (%s, %s, %s, %s, %s)",
             (row['start_time'], row['end_time'], row['duration_minutes'], row['start_station_id'], row['end_station_id'])
